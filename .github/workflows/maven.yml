@@ -27,6 +27,11 @@ jobs:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven-
+        
+    - name: Start Chrome
+      run: |
+         sudo apt-get update
+         sudo apt-get install -y chromium-browser
 
     - name: Build and test with Maven
       run: |
