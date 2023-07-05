@@ -27,8 +27,13 @@ jobs:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven-
+        
+    - name: Start Chrome
+      run: |
+         choco install chromium
+         choco install chromedriver
 
     - name: Build and test with Maven
       run: |
-       mvn install -Ddistribution=jar
-       mvn clean test
+         ls -la
+         mvn install && mvn test 
