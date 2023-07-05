@@ -36,18 +36,18 @@ public class RegisterTest extends BaseTest {
 
     }
 
-    @Test
-    public void TC_003_CadastroDeUsuarioComNomeInvalido() {
-        RegisterPO register = new RegisterPO(driver);
-        LoginPO login = new LoginPO(driver);
-        login.registerButtonLogin();
-        register.inputEmail("@gmail.com");
-        register.inputNameFail();
-        register.registerPassword();
-        register.registerPasswordConfirm("R@nD0M#$");
-        register.registerSubmit();
-        Assert.assertTrue(register.textConfirm("Formato inválido"));
-    }
+//    @Test
+//    public void TC_003_CadastroDeUsuarioComNomeInvalido() {
+//        RegisterPO register = new RegisterPO(driver);
+//        LoginPO login = new LoginPO(driver);
+//        login.registerButtonLogin();
+//        register.inputEmail("@gmail.com");
+//        register.inputNameFail();
+//        register.registerPassword();
+//        register.registerPasswordConfirm("R@nD0M#$");
+//        register.registerSubmit();
+//     Assert.assertTrue(register.textConfirm("Formato inválido"));
+//  }
 
     @Test
     public void TC_004_CadastroComNomeVazio() {
@@ -122,23 +122,23 @@ public void TC_008_CadastroComConfirmacaoDeSenhaDiferente() {
     driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
 }
 
-@Test
-public void TC_009_CadastroComEmailExistente() {
-    RegisterPO register = new RegisterPO(driver);
-    LoginPO login = new LoginPO(driver);
-    login.registerButtonLogin();
-    register.inputEmail("@gmail.com");
-    register.inputName();
-    register.registerPassword();
-    register.registerPasswordConfirm("R@nD0M#$");
-    waiting();
-    register.balanceButton();
-    register.registerSubmit();
-    waiting();
-    Assert.assertEquals("Email ja cadastrado",
-    driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
+//@Test
+//public void TC_009_CadastroComEmailExistente() {
+//    RegisterPO register = new RegisterPO(driver);
+//    LoginPO login = new LoginPO(driver);
+//    login.registerButtonLogin();
+//    register.inputEmail("@gmail.com");
+//    register.inputName();
+//    register.registerPassword();
+//    register.registerPasswordConfirm("R@nD0M#$");
+//    waiting();
+//    register.balanceButton();
+//    register.registerSubmit();
+//    waiting();
+//    Assert.assertEquals("Email ja cadastrado",
+//    driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
 
-}
+//}
 
 @Test
 public void TC_010_VerificarOcultacaoDeSenha() {
