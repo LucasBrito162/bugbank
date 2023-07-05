@@ -6,7 +6,7 @@ Este projeto contém exemplos de automação de testes de login e registro usand
 
 Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
-- Java Development Kit (JDK)
+- Java Development Kit (JDK).
 - Maven
 - ChromeDriver (para executar os testes no Google Chrome)
 
