@@ -20,7 +20,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
       cd bugbank
 <h4>Instale as dependências do projeto usando o Maven:</h4>
 
-      mvn clean install
+      mvn  install
 ## Executando os testes
 <h5>Siga as etapas abaixo para executar os testes:</h5>
 
