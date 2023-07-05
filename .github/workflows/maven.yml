@@ -30,8 +30,8 @@ jobs:
         
     - name: Start Chrome
       run: |
-         sudo apt-get update
-         sudo apt-get install -y chromium-browser
+         choco install chromium
+         choco install chromedriver
 
     - name: Build and test with Maven
       run: |
