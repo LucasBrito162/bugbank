@@ -31,4 +31,4 @@ jobs:
     - name: Build and test with Maven
       run: |
          ls -la
-         cd ./src && mvn install && mvn test && ls -la
+         mvn install && mvn test 
