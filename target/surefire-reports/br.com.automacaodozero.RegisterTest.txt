@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: br.com.automacaodozero.RegisterTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 28.383 s <<< FAILURE! - in br.com.automacaodozero.RegisterTest
+br.com.automacaodozero.RegisterTest.TC_003_CadastroDeUsuarioComNomeInvalido  Time elapsed: 2.36 s  <<< FAILURE!
+java.lang.AssertionError
+	at br.com.automacaodozero.RegisterTest.TC_003_CadastroDeUsuarioComNomeInvalido(RegisterTest.java:49)
+
+br.com.automacaodozero.RegisterTest.TC_009_CadastroComEmailExistente  Time elapsed: 5.061 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Email ja cadastrad]o> but was:<[A conta 308-0 foi criada com sucess]o>
+	at br.com.automacaodozero.RegisterTest.TC_009_CadastroComEmailExistente(RegisterTest.java:138)
+
