@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="br.com.automacaodozero.LoginTest" time="20.91" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="br.com.automacaodozero.LoginTest" time="27.59" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="19.0.2+7-44"/>
@@ -35,7 +35,6 @@
     <property name="java.class.version" value="63.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="skipTests" value="false"/>
     <property name="os.version" value="10.0"/>
     <property name="library.jansi.path" value="C:/Program Files/apache-maven-3.8.6-bin/apache-maven-3.8.6/lib/jansi-native"/>
     <property name="user.home" value="C:\Users\Pc"/>
@@ -46,7 +45,7 @@
     <property name="java.class.path" value="C:/Program Files/apache-maven-3.8.6-bin/apache-maven-3.8.6/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="19"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -DskipTests=false"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -62,10 +61,10 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_016_LoginComEmailInvalido" time="7.664"/>
-  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_012_LoginSemPreencherEmailESenha" time="2.366"/>
-  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_013_LoginComSenhaVazia" time="2.5"/>
-  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_015_LoginComEmailVazio" time="2.416"/>
-  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_017_LoginComEmailESenhaValidas" time="3.511"/>
+  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_016_LoginComEmailInvalido" time="13.996"/>
+  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_012_LoginSemPreencherEmailESenha" time="2.371"/>
+  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_013_LoginComSenhaVazia" time="2.804"/>
+  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_015_LoginComEmailVazio" time="2.461"/>
+  <testcase classname="br.com.automacaodozero.LoginTest" name="TC_017_LoginComEmailESenhaValidas" time="3.505"/>
   <testcase classname="br.com.automacaodozero.LoginTest" name="TC_014_LoginComSenhaInvalida" time="2.453"/>
 </testsuite>
