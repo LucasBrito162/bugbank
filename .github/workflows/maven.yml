@@ -39,6 +39,18 @@ jobs:
          mvn test 
          exit 0
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Check Allure installation
+      run: allure --version || echo "Allure is not installed"
+
+    - name: Install Allure Command Line
+      run: |
+         choco install allure-commandline
+
     - name: Generate Allure report
       run: |
          allure generate --clean -o allure-report
