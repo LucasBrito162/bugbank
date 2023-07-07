@@ -41,7 +41,11 @@ jobs:
    
     - name: Generate JUnit report
       run: mvn surefire-report:report-only
-  
+           mkdir -p docs
+           cp -R target/site/surefire-report/* docs/
+      env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload JUnit report as artifact
       uses: actions/upload-artifact@v2
       with:
