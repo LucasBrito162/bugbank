@@ -38,3 +38,9 @@ jobs:
          mvn install
          mvn test 
          exit 0
+         
+    - name: Publish report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       publish_dir: ./path/to/report
