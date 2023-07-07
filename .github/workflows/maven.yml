@@ -39,11 +39,25 @@ jobs:
          mvn test 
          exit 0
 
-    - name: Generate JaCoCo report
-      run: mvn jacoco:report
-    
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
+         - name: Generate JaCoCo report
+         run: mvn jacoco:report
+   
+    - name: Convert JaCoCo report to SARIF
+      run: |
+          wget https://github.com/github/codeql-action/releases/latest/download/codeql-bundle.tar.gz
+          tar xzf codeql-bundle.tar.gz
+          ./codeql/codeql database create codeql-db --language=java --source-root=./ --ram=2048
+          ./codeql/codeql database analyze codeql-db --format=sarif-latest --output=report.sarif
+   
+    - name: Upload JaCoCo report as artifact
+      uses: actions/upload-artifact@v2
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+        name: jacoco-report
+        path: target/site/jacoco
+   
+    - name: Upload SARIF report as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: sarif-report
+        path: report.sarif
     
