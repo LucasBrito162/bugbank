@@ -32,7 +32,6 @@ jobs:
       run: |
          choco install chromium
          choco install chromedriver
-
     - name: Build and test with Maven
       run: |
          mvn install
@@ -40,11 +39,10 @@ jobs:
          exit 0
    
     - name: Generate JUnit report
-      run: |
-         mvn surefire-report:report
+      run: mvn surefire-report:report -Dsurefire.reportsDirectory=target/surefire-reports
   
     - name: Upload JUnit report as artifact
       uses: actions/upload-artifact@v2
       with:
         name: junit-report
-        path: ${project.build.directory}/surefire-reports
+        path: target/surefire-reports
