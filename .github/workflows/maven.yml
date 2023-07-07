@@ -39,7 +39,7 @@ jobs:
          exit 0
    
     - name: Generate JUnit report
-      run: mvn surefire-report:report -Dsurefire.reportsDirectory=target/surefire-reports
+      run: mvn surefire-report:report-only
   
     - name: Upload JUnit report as artifact
       uses: actions/upload-artifact@v2
