@@ -55,10 +55,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jacoco-report
-        path: target/site/jacoco
+        path: target/surefire-reports
    
     - name: Upload SARIF report as artifact
       uses: actions/upload-artifact@v2
       with:
         name: sarif-report
-        path: report.html
+        path: report.sarif
