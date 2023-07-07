@@ -41,7 +41,7 @@ jobs:
    
     - name: Generate JUnit report
       run: |
-           mvn surefire-report:report
+         mvn surefire-report:report
   
     - name: Upload JUnit report as artifact
       uses: actions/upload-artifact@v2
