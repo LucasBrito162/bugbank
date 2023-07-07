@@ -39,11 +39,13 @@ jobs:
          mvn test 
          exit 0
 
-    - name: Download Allure Command Line
+    - name: Install Allure Command Line
       run: |
-         Invoke-WebRequest -Uri https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip -OutFile allure.zip
-         Expand-Archive allure.zip -DestinationPath allure
-         $env:PATH = "${{ github.workspace }}/allure/bin;$env:PATH"
+         choco install allure-commandline
+
+    - name: Add Allure to PATH
+      run: |
+         echo "::add-path::C:\Program Files\Allure Commandline"
 
     - name: Check Allure installation
       run: allure --version || echo "Allure is not installed"
