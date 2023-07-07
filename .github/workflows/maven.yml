@@ -47,4 +47,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: junit-report
-        report_path: ${project.build.directory}/surefire-reports
+        path: ${project.build.directory}/surefire-reports
