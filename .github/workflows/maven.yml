@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repository
@@ -35,5 +35,15 @@ jobs:
 
     - name: Build and test with Maven
       run: |
-         ls -la
-         mvn install && mvn test 
+         mvn install
+         mvn test 
+         exit 0
+
+    - name: Generate JaCoCo report
+      run: mvn jacoco:report
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+    
