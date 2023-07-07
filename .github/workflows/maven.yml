@@ -38,4 +38,3 @@ jobs:
          mvn install
          mvn test 
          exit 0
-         echo "
