@@ -38,27 +38,13 @@ jobs:
          mvn install
          mvn test 
          exit 0
-
-         - name: Generate Allure report
-         run: |
-            mvn allure:report
    
-    - name: Upload Allure report as artifact
+    - name: Generate JUnit report
+      run: |
+           mvn surefire-report:report
+  
+    - name: Upload JUnit report as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: allure-report
-        path: allure-report
-   
-    - name: Install Allure command-line
-      run: |
-         choco install allure-commandline
-   
-    - name: Generate Allure report files
-      run: |
-         allure generate --clean -o allure-results allure-report
-   
-    - name: Upload Allure results as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: allure-results
-        path: allure-results
+        name: junit-report
+        path: target/site/surefire-report
