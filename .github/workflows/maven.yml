@@ -39,20 +39,16 @@ jobs:
          mvn test 
          exit 0
 
-    - name: Install Allure Command Line
+    - name: Download and extract Allure Command Line
       run: |
-         choco install allure-commandline
-
-    - name: Add Allure to PATH
-      run: |
-         echo "::add-path::C:\Program Files\Allure Commandline"
+         Invoke-WebRequest -Uri https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip -OutFile allure.zip
+         Expand-Archive -Path allure.zip -DestinationPath allure
 
     - name: Check Allure installation
       run: allure --version || echo "Allure is not installed"
 
     - name: Generate Allure report
-      run: |
-         allure generate --clean -o allure-report
+      run: allure generate --clean -o allure-report
 
     - name: Upload Allure report
       uses: actions/upload-artifact@v2
