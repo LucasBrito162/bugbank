@@ -39,17 +39,8 @@ jobs:
          mvn test 
          exit 0
 
-    - name: Download CodeQL Bundle
-      run: |
-         Invoke-WebRequest -Uri "https://github.com/github/codeql-action/releases/latest/download/codeql-bundle.tar.gz" -OutFile "codeql-bundle.tar.gz"
-   
-    - name: Extract CodeQL Bundle
-      run: tar xzf codeql-bundle.tar.gz
-   
-    - name: Convert JaCoCo report to SARIF
-      run: |
-         ./codeql/codeql database create codeql-db --language=java --source-root=./ --ram=2048
-         ./codeql/codeql database analyze codeql-db --format=sarif-latest --output=report.sarif
+    - name: Generate JaCoCo report
+      run: mvn jacoco:report
    
     - name: Upload JaCoCo report as artifact
       uses: actions/upload-artifact@v2
@@ -57,8 +48,11 @@ jobs:
         name: jacoco-report
         path: target/site/jacoco
    
-    - name: Upload SARIF report as artifact
+    - name: Generate HTML report from JaCoCo
+      run: mvn jacoco:report-aggregate
+   
+    - name: Upload HTML report as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: sarif-report
-        path: report.html
+        name: html-report
+        path: target/site/jacoco-aggregate/index.html
