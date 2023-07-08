@@ -39,12 +39,6 @@ jobs:
          mvn test 
          exit 0
 
-    - name: Upload JUnit report as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: junit-report
-        path: target/surefire-reports
-        
     - name: Generate JUnit report
       run: |
         mvn surefire-report:report-only
@@ -52,7 +46,13 @@ jobs:
         cp -R target/site/index.html docs/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        
+    - name: Upload JUnit report as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: junit-report
+        path: target/surefire-reports
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
