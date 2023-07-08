@@ -49,7 +49,7 @@ jobs:
       run: |
         mvn surefire-report:report-only
         mkdir -p docs
-        cp -R target/site/surefire-report/* docs/
+        cp -R target/site/index.html docs/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
