@@ -43,7 +43,7 @@ jobs:
       - name: Copiar JUnit report para o diretório de artefatos
         run: |
           mkdir -p ${{ github.workspace }}/artifacts
-          cp -R target/site ${{ github.workspace }}/artifacts
+          cp -R target ${{ github.workspace }}/artifacts
 
       - name: Upload do JUnit report
         uses: actions/upload-artifact@v2
@@ -52,7 +52,7 @@ jobs:
           path: ${{ github.workspace }}/artifacts
 
   deploy:
-    needs: [Upload do JUnit report]
+    needs: [build]
     runs-on: windows-latest
     steps:
       - name: Copiar artefato para o diretório de publicação
