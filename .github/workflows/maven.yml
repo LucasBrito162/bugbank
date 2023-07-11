@@ -53,11 +53,11 @@ jobs:
        path: ${{ github.workspace }}/artifacts
 
     - name: copiar artefato para deploy
-      run: cp ${{ github.workspace }}/artifacts/target/site/index.html ${{ github.workspace }}/public/
+      run: cp ${{ github.workspace }}/artifacts/target/site/index.html ${{ github.workspace }}/bugbank/
 
 
     - name: Deploy para GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ github.workspace }}/public
+        publish_dir: ${{ github.workspace }}/bugbank
