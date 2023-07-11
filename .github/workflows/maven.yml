@@ -42,8 +42,7 @@ jobs:
     - name: Generate JUnit report
       run: |
         mvn surefire-report:report-only
-        mkdir -p docs
-        cp -R target/site/index.html docs/
+        cp -R target/index.html 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
@@ -51,10 +50,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: junit-report
-        path: target/surefire-reports
+        path: target/
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: target/surefire-reports
+        publish_dir: target/index.html 
