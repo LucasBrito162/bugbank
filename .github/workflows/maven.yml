@@ -33,6 +33,7 @@ jobs:
       run: |
          choco install chromium
          choco install chromedriver
+         
     - name: Build and test with Maven
       run: |
          mvn install
@@ -42,7 +43,7 @@ jobs:
     - name: Generate JUnit report
       run: |
         mvn surefire-report:report-only
-        cp -R target/
+        cp -R target/ ${{ github.workspace }}/downloaded_artifact/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
@@ -50,11 +51,18 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: junit-report
-        path: target/
+        path: ${{ github.workspace }}/downloaded_artifact/
         
+    - name: Download JUnit report artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: junit-report
+        path: downloaded_artifact
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: target/index.html 
+        publish_dir: downloaded_artifact
         publish_branch: gh-pages
+
