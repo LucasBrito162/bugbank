@@ -52,6 +52,10 @@ jobs:
        name: JUnit-Report
        path: ${{ github.workspace }}/artifacts
 
+    - name: copiar artefato para deploy
+      run: cp ${{ github.workspace }}/artifacts/target/site/index.html ${{ github.workspace }}/public/
+
+
     - name: Deploy para GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
