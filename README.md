@@ -1,6 +1,6 @@
 # Projeto de Automação de Testes com Selenium e JUnit
 
-Este projeto contém exemplos de automação de testes de login e registro usando Selenium WebDriver em Java com JUnit. Os testes são executados no site BugBank, e os casos de teste foram desenvolvidos para validar diferentes cenários .
+Este projeto contém exemplos de automação de testes de login e registro usando Selenium WebDriver em Java com JUnit. Os testes são executados no site BugBank, e os casos de teste foram desenvolvidos para validar diferentes cenários
 
 ## Pré-requisitos
 
