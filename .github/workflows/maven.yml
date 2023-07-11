@@ -52,7 +52,7 @@ jobs:
           path: ${{ github.workspace }}/artifacts
 
   deploy:
-    needs: [build]
+    needs: [Upload do JUnit report]
     runs-on: windows-latest
     steps:
       - name: Copiar artefato para o diretório de publicação
