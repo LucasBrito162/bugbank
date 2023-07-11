@@ -35,6 +35,7 @@ jobs:
       - name: Build with Maven
         run: |
           mvn install
+          mvn test
           exit 0
 
       - name: Gerar JUnit report
@@ -56,7 +57,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Copiar artefato para o diretório de publicação
-        run: cp ${{ github.workspace }}/artifacts/target/index.html ${{ github.workspace }}/public/
+        run: cp ${{ github.workspace }}/artifacts/target/surefire-reports/index.html ${{ github.workspace }}/public/
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
