@@ -1,9 +1,6 @@
 name: Java Selenium Maven Workflow
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -13,47 +10,43 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Cópia repositorio executor
+      uses: actions/checkout@v3
 
-    - name: Set up JDK 19
-      uses: actions/setup-java@v2
+    - name: Configurar JDK 19
+      uses: actions/setup-java@v3
       with:
         java-version: 19
         distribution: 'adopt'
-
-    - name: Cache Maven dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-maven-
+        cache: maven
         
-    - name: Start Chrome
+    - name: Dependências Maven
+      run: |
+       mvn --batch-mode --update-snapshots package 
+     
+       
+    - name: iniciar o Chrome
       run: |
          choco install chromium
          choco install chromedriver
+         
     - name: Build and test with Maven
       run: |
          mvn install
          mvn test 
          exit 0
-   
-    - name: Generate JUnit report
-      run: mvn surefire-report:report-only
-           mkdir -p docs
-           cp -R target/site/surefire-report/* docs/
-      env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
 
-    - name: Upload JUnit report as artifact
-      uses: actions/upload-artifact@v2
+    - name: Gerando JUnit report
+      run: mvn surefire-report:report
+         
+    - name: Copiar JUnit report para o diretorio
+      run: |
+         mkdir -p ${{ github.workspace }}/artifacts
+         cp -R target/site ${{ github.workspace }}/artifacts
+         
+    - name: Upload do JUnit report
+      uses: actions/upload-artifact@v3
       with:
-        name: junit-report
-        path: target/surefire-reports
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: target/surefire-reports
+       name: JUnit-Report
+       path: ${{ github.workspace }}/artifacts
