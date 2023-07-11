@@ -1,10 +1,6 @@
 name: Java Selenium Maven Workflow
 
 on:
-  push:
-    branches:
-      - master
-
   pull_request:
     branches:
       - master
@@ -14,58 +10,53 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Cópia repositorio executor
-      uses: actions/checkout@v3
+      - name: Cópia repositório executor
+        uses: actions/checkout@v3
 
-    - name: Configurar JDK 19
-      uses: actions/setup-java@v3
-      with:
-        java-version: 19
-        distribution: 'adopt'
-        cache: maven
-        
-    - name: Dependências Maven
-      run: |
-       mvn --batch-mode --update-snapshots package 
-     
-       
-    - name: iniciar o Chrome
-      run: |
-         choco install chromium
-         choco install chromedriver
-         
-         
-    - name: Build and test with Maven
-      run: |
-         mvn install
-         mvn test 
-         exit 0
-  
+      - name: Configurar JDK 19
+        uses: actions/setup-java@v3
+        with:
+          java-version: 19
+          distribution: 'adopt'
+          cache: maven
 
-    - name: Gerando JUnit report
-      run: mvn surefire-report:report
-         
-    - name: Copiar JUnit report para o diretorio
-      run: |
-         mkdir -p ${{ github.workspace }}/artifacts
-         cp -R target/site ${{ github.workspace }}/artifacts
-         
-    - name: Upload do JUnit report
-      uses: actions/upload-artifact@v3
-      with:
-       name: JUnit-Report
-       path: ${{ github.workspace }}/artifacts
+      - name: Dependências Maven
+        run: |
+          mvn --batch-mode --update-snapshots package
 
-jobs2:
-  needs: [build]
-   runs-on: windows-latest
-   steps:
-    - name: copiar artefato para deploy
-      run: cp ${{ github.workspace }}/artifacts/target/site/index.html ${{ github.workspace }}/public/
+      - name: Iniciar o Chrome
+        run: |
+          choco install chromium
+          choco install chromedriver
 
+      - name: Build with Maven
+        run: |
+          mvn install
+          exit 0
 
-    - name: Deploy para GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ github.workspace }}/public
+      - name: Gerar JUnit report
+        run: mvn surefire-report:report
+
+      - name: Copiar JUnit report para o diretório de artefatos
+        run: |
+          mkdir -p ${{ github.workspace }}/artifacts
+          cp -R target/site ${{ github.workspace }}/artifacts
+
+      - name: Upload do JUnit report
+        uses: actions/upload-artifact@v2
+        with:
+          name: JUnit-Report
+          path: ${{ github.workspace }}/artifacts
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copiar artefato para o diretório de publicação
+        run: cp ${{ github.workspace }}/artifacts/target/site/index.html ${{ github.workspace }}/public/
+
+      - name: Deploy para GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ github.workspace }}/public
