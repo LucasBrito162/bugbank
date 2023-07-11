@@ -1,6 +1,9 @@
 name: Java Selenium Maven Workflow
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
