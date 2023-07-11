@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Cópia repositório executor
@@ -52,3 +54,15 @@ jobs:
           name: JUnit-Report
           path: ${{ github.workspace }}/artifacts
 
+  deploy:
+    needs: [build]
+    runs-on: windows-latest
+    steps:
+      - name: Copiar artefato para o diretório de publicação
+        run: cp ${{ github.workspace }}/artifacts/target/surefire-reports/index.html ${{ github.workspace }}
+
+      - name: Deploy para GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ github.workspace }}
