@@ -60,8 +60,8 @@ jobs:
     steps:
       - name: Copiar artefato para o diretório de publicação
         run: |
-           mkdir public
-            cp -r ${{ github.workspace }}/artifacts/target public/
+          mkdir public
+          cp -r ${{ github.workspace }}/target/surefire-report public/
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
