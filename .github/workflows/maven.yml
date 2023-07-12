@@ -48,7 +48,7 @@ jobs:
       - name: Copia as evidências e teste e transfere para uma pasta pública 
         run: | 
            mkdir public 
-           cp -r ${project.build.directory}/allure-results public/
+           cp -r target/surefire-reports public/
           
 
       - name: Realizar Deploy do relatório HTML
