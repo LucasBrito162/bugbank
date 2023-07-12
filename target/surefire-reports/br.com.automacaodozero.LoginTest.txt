@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.automacaodozero.LoginTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.838 s - in br.com.automacaodozero.LoginTest
