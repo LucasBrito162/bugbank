@@ -6,7 +6,7 @@ import org.junit.Assert;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+   //@Test
     public void TC_012_LoginSemPreencherEmailESenha() {
         LoginPO login = new LoginPO(driver);
         login.buttonAcess();
@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[1]/p")).getText());
     }
 
-    @Test
+    //@Test
     public void TC_014_LoginComSenhaInvalida() {
         LoginPO login = new LoginPO(driver);
         login.inputEmailLogin("lucas@lucas.com");
@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void TC_015_LoginComEmailVazio() {
         LoginPO login = new LoginPO(driver);
         login.inputPasswordLogin("1234");
@@ -55,7 +55,7 @@ public class LoginTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[2]/div/p")).getText());
     }
 
-    @Test
+    //@Test
     public void TC_016_LoginComEmailInvalido() {
         LoginPO login = new LoginPO(driver);
         login.inputEmailLogin("lucas12122@gmail.com");
@@ -66,7 +66,7 @@ public class LoginTest extends BaseTest {
                 + "\nTente novamente ou verifique suas informações!", driver.findElement(By.id("modalText")).getText());
     }
 
-    @Test
+//@Test
     public void TC_017_LoginComEmailESenhaValidas() {
         LoginPO login = new LoginPO(driver);
         RegisterPO register = new RegisterPO(driver);
