@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterTest extends BaseTest {
 
-    //@Test
+    @Test
     public void TC_001_CadastroUsuarioComDadosValidosComSucesso() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
