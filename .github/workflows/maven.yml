@@ -25,10 +25,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - name: Dependências Maven
-        run: |
-          mvn --batch-mode --update-snapshots package
-
       - name: Iniciar o Chrome
         run: |
           choco install chromium
