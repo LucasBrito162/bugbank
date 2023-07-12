@@ -42,4 +42,5 @@ jobs:
 
       - name: Gerar Relatório
         run: |
-          java -jar generate_report.jar
+          mvn allure:serve
+          mvn allure:report
