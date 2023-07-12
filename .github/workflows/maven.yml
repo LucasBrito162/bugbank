@@ -48,23 +48,17 @@ jobs:
           mkdir -p ${{ github.workspace }}/artifacts
           cp -R target ${{ github.workspace }}/artifacts
 
-      - name: Upload do JUnit report
-        uses: actions/upload-artifact@v2
-        with:
-          name: JUnit-Report
-          path: ${{ github.workspace }}/artifacts
 
   deploy:
     needs: [build]
     runs-on: windows-latest
     steps:
       - name: Copiar artefato para o diretório de publicação
-        run: |
-          mkdir public
-          cp -r ${{ github.workspace }}/target/surefire-reports public/
+        run: | 
+          cp -r ${{ github.workspace }}/target/surefire-reports
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public/
+          publish_dir: ${{ github.workspace }}
