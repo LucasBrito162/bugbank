@@ -37,14 +37,13 @@ jobs:
       - name: Build with Maven
         run: |
           mvn clean install
-          mvn test
           exit 0
           
           
       - name: Copia as evidências e teste e transfere para uma pasta pública 
         run: | 
            mkdir public 
-           cp -r target/surefire-reports public/
+           cp -r target/site/allure-maven-plugin public/allure-report
           
       - name: Gerar Relatório HTML
         run: |
