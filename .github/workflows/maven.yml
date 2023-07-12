@@ -61,8 +61,7 @@ jobs:
       - name: Copiar artefato para o diretório de publicação
         run: |
           mkdir public
-          cp -r /artifacts/target/surefire-reports/index.html public/
-
+          cp -r /artifacts/target/surefire-reports/index.html
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
