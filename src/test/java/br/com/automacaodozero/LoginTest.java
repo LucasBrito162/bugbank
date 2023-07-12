@@ -6,7 +6,7 @@ import org.junit.Assert;
 
 public class LoginTest extends BaseTest {
 
-   //@Test
+   @Test
     public void TC_012_LoginSemPreencherEmailESenha() {
         LoginPO login = new LoginPO(driver);
         login.buttonAcess();
