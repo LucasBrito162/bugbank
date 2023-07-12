@@ -42,7 +42,7 @@ jobs:
 
       - name: Gerar Relatório
         run: |
-          mkdir allure-result
+          mkdir allure-results
           mvn allure:report
           
 
