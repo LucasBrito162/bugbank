@@ -44,6 +44,7 @@ jobs:
       - name: Gerar Relatório HTML
         run: |
           mvn allure:report
+          mvn allure:serve
 
 
       - name: Realizar Deploy do relatório HTML
