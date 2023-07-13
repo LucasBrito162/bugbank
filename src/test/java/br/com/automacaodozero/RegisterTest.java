@@ -21,7 +21,7 @@ public class RegisterTest extends BaseTest {
 
     }
 
-   // @Test
+    @Test
     public void TC_002_CadastroDeUsuarioComEmailInvalido() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -35,7 +35,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/p")).getText());
     }
 
-    //@Test
+   @Test
     public void TC_003_CadastroDeUsuarioComNomeInvalido() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -48,7 +48,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(register.textConfirm("Formato inválido"));
     }
 
-    //@Test
+   @Test
     public void TC_004_CadastroComNomeVazio() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -62,7 +62,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
     }
 
-    //@Test
+   @Test
     public void TC_005_CadastroComEmailVazio() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -76,7 +76,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/p")).getText());
     }
 
-    //@Test
+   @Test
     public void TC_006_CadastroComSenhaVazia() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -90,7 +90,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[4]/div/p")).getText());
     }
 
-    //@Test
+    @Test
     public void TC_007_CadastroComConfirmacaoDeSenhaVazia() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -104,7 +104,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[5]/div/p")).getText());
     }
 
-    //@Test
+    @Test
     public void TC_008_CadastroComConfirmacaoDeSenhaDiferente() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
@@ -119,7 +119,7 @@ public class RegisterTest extends BaseTest {
                 driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
     }
 
-    //@Test
+    @Test
     public void TC_009_CadastroComEmailExistente() {
         RegisterPO register = new RegisterPO(driver);
         LoginPO login = new LoginPO(driver);
