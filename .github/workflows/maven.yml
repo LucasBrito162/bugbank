@@ -43,8 +43,6 @@ jobs:
         run: | 
            mkdir public 
            cp -r target/site/allure-maven-plugin/* public
-          
-          
 
 
       - name: Realizar Deploy do relatório HTML
