@@ -1,4 +1,5 @@
-# Created at 2023-07-12T21:39:48.103
+# Created at 2023-07-12T23:06:51.375
 Boot Manifest-JAR contains absolute paths in classpath 'D:\AluraProgramas\Desafios\bugbank\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
 
