@@ -39,13 +39,14 @@ jobs:
       - name: Copia as evidências e teste e transfere para uma pasta pública 
         run: | 
            mkdir public 
+           cp -r target/surefire-reports allure-results
            cp -r allure-results public/allure-report
           
       - name: Gerar Relatório HTML
         run: |
           mvn allure:report
 
-          
+
       - name: Realizar Deploy do relatório HTML
         uses: peaceiris/actions-gh-pages@v3
         with:
