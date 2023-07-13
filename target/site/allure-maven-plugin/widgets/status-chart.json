@@ -1,0 +1,1 @@
+[{"uid":"fbc75168a192f2c","name":"TC_012_LoginSemPreencherEmailESenha","time":{"start":1689214012850,"stop":1689214023662,"duration":10812},"status":"passed","severity":"normal"},{"uid":"30a9034429b48a7a","name":"TC_001_CadastroUsuarioComDadosValidosComSucesso","time":{"start":1689214023731,"stop":1689214026179,"duration":2448},"status":"passed","severity":"normal"}]
