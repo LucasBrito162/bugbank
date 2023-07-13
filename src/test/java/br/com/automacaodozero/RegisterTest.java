@@ -136,16 +136,16 @@ public class RegisterTest extends BaseTest {
    //              driver.findElement(By.xpath("//*[@id=\"modalText\"]")).getText());
    //  }
 
-   //  //@Test
-   //  public void TC_010_VerificarOcultacaoDeSenha() {
-   //      RegisterPO register = new RegisterPO(driver);
-   //      LoginPO login = new LoginPO(driver);
-   //      login.registerButtonLogin();
-   //      register.registerPassword();
-   //      register.registerPasswordConfirm("R@nD0M#$");
-   //      waiting();
-   //      register.iconEye();
-   //      waiting();
-   //      Assert.assertTrue(register.confirmEyes());
-   //  }
+   @Test
+     public void TC_010_VerificarOcultacaoDeSenha() {
+         RegisterPO register = new RegisterPO(driver);
+         LoginPO login = new LoginPO(driver);
+         login.registerButtonLogin();
+         register.registerPassword();
+         register.registerPasswordConfirm("R@nD0M#$");
+         waiting();
+         register.iconEye();
+         waiting();
+         Assert.assertTrue(register.confirmEyes());
+    }
 }
