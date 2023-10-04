@@ -9,7 +9,6 @@ steps:
   inputs:
     gitHubConnection: 'GitHub - LucasBrito162'
     repositoryName: 'LucasBrito162/bugbank'
-  inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
