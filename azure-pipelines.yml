@@ -3,11 +3,13 @@
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testRunTitle: 'Teste bugbank'
+    testRunTitle: 'Primeiro'
     codeCoverageToolOption: 'Cobertura'
+    codeCoverageFailIfEmpty: true
+    codeCoverageRestoreOriginalPomXml: true
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
+    mavenAuthenticateFeed: true
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
