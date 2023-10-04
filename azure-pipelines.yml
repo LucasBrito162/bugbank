@@ -1,5 +1,11 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
 - task: Maven@4
-- task: GitHubComment@0
   inputs:
     gitHubConnection: 'GitHub - LucasBrito162'
     repositoryName: 'LucasBrito162/bugbank'
@@ -8,7 +14,6 @@
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     testRunTitle: 'Primeiro'
-    codeCoverageToolOption: 'Cobertura'
     codeCoverageFailIfEmpty: true
     codeCoverageRestoreOriginalPomXml: true
     javaHomeOption: 'JDKVersion'
@@ -17,3 +22,10 @@
     mavenAuthenticateFeed: true
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+    allowBrokenSymlinks: 
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: "JaCoCo"
+    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
+    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
+    failIfCoverageEmpty: true
