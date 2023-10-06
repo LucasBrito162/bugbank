@@ -21,10 +21,21 @@ steps:
     mavenAuthenticateFeed: true
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-    allowBrokenSymlinks: 
-- task: PublishCodeCoverageResults@1
+    allowBrokenSymlinks: true
+
+- script: |
+    # Copiar os relatórios do Allure para a pasta de publicação
+    cp -R ./allure-report/* $(Build.ArtifactStagingDirectory)/
+  displayName: 'Copy Allure reports'
+
+- task: PublishTestResults@2
   inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testRunTitle: 'Testes Automatizados'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'allure-report'
+    publishLocation: 'Container'
