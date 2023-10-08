@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"41c30a0498c825b24d1b019d324b5bc1","name":"br.com.automacaodozero.RegisterTest","statistic":{"failed":2,"broken":0,"skipped":0,"passed":8,"unknown":0,"total":10}},{"uid":"2a508302af666bf647b12daf04d072a3","name":"br.com.automacaodozero.LoginTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":6,"unknown":0,"total":6}}]}
