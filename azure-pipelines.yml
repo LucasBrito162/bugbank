@@ -7,35 +7,16 @@ pool:
 steps:
 - task: Maven@4
   inputs:
-    gitHubConnection: 'GitHub - LucasBrito162'
-    repositoryName: 'LucasBrito162/bugbank'
     mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testRunTitle: 'Primeiro'
-    codeCoverageFailIfEmpty: true
-    codeCoverageRestoreOriginalPomXml: true
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: true
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-    allowBrokenSymlinks: true
-
-- script: |
-    # Copiar os relatórios do Allure para a pasta de publicação
-    cp -R ./allure-report/* $(Build.ArtifactStagingDirectory)/
-  displayName: 'Copy Allure reports'
+    goals: mvn clean test 
 
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     testRunTitle: 'Testes Automatizados'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'allure-report'
+    pathtoPublish: '$(System.DefaultWorkingDirectory)'
+    artifactName: 'test-artifacts'
     publishLocation: 'Container'
