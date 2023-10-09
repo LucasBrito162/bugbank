@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: br.com.automacaodozero.TestRegisterTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 18.82 s <<< FAILURE! -- in br.com.automacaodozero.TestRegisterTest
+br.com.automacaodozero.TestRegisterTest.TC_003_CadastroDeUsuarioComNomeInvalido -- Time elapsed: 1.738 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at br.com.automacaodozero.TestRegisterTest.TC_003_CadastroDeUsuarioComNomeInvalido(TestRegisterTest.java:47)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+br.com.automacaodozero.TestRegisterTest.TC_009_CadastroComEmailExistente -- Time elapsed: 2.088 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Email ja cadastrado> but was: <A conta 766-7 foi criada com sucesso>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1141)
+	at br.com.automacaodozero.TestRegisterTest.TC_009_CadastroComEmailExistente(TestRegisterTest.java:134)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
