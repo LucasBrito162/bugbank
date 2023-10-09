@@ -8,7 +8,7 @@ steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: mvn clean test 
+    goals: 'mvn clean test'
 
 - task: PublishTestResults@2
   inputs:
