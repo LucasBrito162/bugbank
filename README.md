@@ -8,7 +8,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
 - Java Development Kit (JDK).
 - Maven
-- ChromeDriver (para executar os testes no Google Chrome)
+- Google Chrome (os testes rodam em modo headless por padrão via ChromeDriver gerenciado automaticamente pelo WebDriverManager)
 
 ## Configuração do ambiente
 
@@ -24,8 +24,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 ## Executando os testes
 <h5>Siga as etapas abaixo para executar os testes:</h5>
 
-1. Certifique-se de ter o ChromeDriver configurado corretamente no seu sistema.
-2. Execute os testes usando o Maven:
+1. Execute os testes usando o Maven:
 
        mvn test
 Isso executará todos os testes definidos nas classes de teste.
@@ -54,3 +53,10 @@ separados para manter uma estrutura organizada e facilitar a manutenção do pro
 Contribuições são bem-vindas! Se você encontrar algum problema no projeto ou tiver 
 sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
+
+
+## Melhorias de organização
+
+- O diretório `target/` (artefatos de build) foi removido do versionamento e incluído no `.gitignore`.
+- Arquivos de lock do Node que não são utilizados por este projeto Java também foram removidos.
+- A configuração base de testes foi ajustada para execução estável em CI (modo headless).

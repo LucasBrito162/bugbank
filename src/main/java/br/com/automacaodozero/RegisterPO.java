@@ -49,26 +49,18 @@ public class RegisterPO extends BasePO {
     }
 
     public void backButton() {
-        driver.findElement(By.id("#btnBackButton")).click();
+        driver.findElement(By.id("btnBackButton")).click();
     }
 
-   public boolean textConfirm(String text){
-     return driver.getPageSource().contains(text);
-
-
+    public boolean textConfirm(String text) {
+        return driver.getPageSource().contains(text);
     }
 
-    public boolean confirmEyes(){
-        WebElement eyeOpen =driver.findElement(By.cssSelector("[alt='Icon Open Eye']"));
-        WebElement eyeClose =driver.findElement(By.cssSelector("[alt='Icon Close Eye']"));
-    
-        if(eyeOpen != eyeClose){
-            return true;
+    public boolean confirmEyes() {
+        WebElement eyeOpen = driver.findElement(By.cssSelector("[alt='Icon Open Eye']"));
+        WebElement eyeClose = driver.findElement(By.cssSelector("[alt='Icon Close Eye']"));
 
-
-        }else{
-            return false;
-        }
+        return eyeOpen.isDisplayed() && eyeClose.isDisplayed();
     }
 
   
